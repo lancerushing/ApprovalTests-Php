@@ -1,12 +1,11 @@
 <?php
 require_once 'writers/Writer.php';
 require_once 'writers/TextWriter.php';
-require_once 'writers/ZendPdfWriter.php';
 require_once 'namers/PHPUnitNamer.php';
 require_once 'reporters/PHPUnitReporter.php';
 require_once 'reporters/OpenReceivedFileReporter.php';
 require_once 'reporters/Reporter.php';
-require_once 'Zend/Pdf.php';
+
 
 class Approvals {
 	private static $reporter = null;
@@ -74,7 +73,4 @@ class Approvals {
 		self::approve(new TextWriter($html, 'html'), new PHPUnitNamer(), self::getReporter('html'));
 	}
 	
-	public static function approvePdf(Zend_Pdf $pdf) {
-		self::approve(new ZendPdfWriter($pdf), new PHPUnitNamer(), self::getReporter('pdf'));
-	}
 }
