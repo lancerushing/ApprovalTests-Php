@@ -33,7 +33,7 @@ class PHPUnitNamer {
 	}
 
 	private function getFile($status, $extensionWithoutDot) {
-		return $this->getCallingTestDirectory() . DIRECTORY_SEPARATOR . $this->getCallingTestClassName() . '.' . $this->getCallingTestMethodName() . '.' . $status . '.' . $extensionWithoutDot; 
+		return $this->getCallingTestDirectory() . DIRECTORY_SEPARATOR . 'approvals' . DIRECTORY_SEPARATOR . $this->getCallingTestClassName() . '.' . $this->getCallingTestMethodName() . '.' . $status . '.' . $extensionWithoutDot; 
 	}
 	
 	public function getCallingTestClassName() {
