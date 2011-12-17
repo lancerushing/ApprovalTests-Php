@@ -1,6 +1,6 @@
 <?php
 require_once 'Reporter.php';
-require_once 'qa/approvals/FileUtil.php';
+require_once dirname(__DIR__) . '/FileUtil.php';
 
 class ViDiffReporter implements Reporter {
 	public function reportFailure($approvedFilename, $receivedFilename) {

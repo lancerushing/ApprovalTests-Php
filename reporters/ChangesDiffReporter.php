@@ -1,5 +1,6 @@
 <?php
 
+require_once 'Reporter.php';
 
 class ChangesDiffReporter implements Reporter {
 
