@@ -15,6 +15,11 @@ class TextWriter implements Writer {
 	}
 	
 	public function write($receivedFilename) {
+		$dir = dirname($receivedFilename);
+		if (!is_dir($dir)) {
+			mkdir($dir);
+		}
+
 		file_put_contents($receivedFilename, $this->received);
 		return $receivedFilename;
 	}
