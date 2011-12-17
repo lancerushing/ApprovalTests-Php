@@ -53,6 +53,30 @@ class Approvals {
 		}
 	}
 	
+	/**
+	 * @todo Refactor - Too much duplication with approve().  
+	 */
+	public static function approvePartial(Writer $writer, $namer, Reporter $reporter) {
+		$extension = $writer->getExtensionWithoutDot();
+		$approvedFilename = $namer->getApprovedFile($extension);
+		$receivedFilename = $writer->write($namer->getReceivedFile($extension));
+		if (!file_exists($approvedFilename)) {
+			$approvedContents = null;
+		} else {
+			$approvedContents = file_get_contents($approvedFilename);
+		}
+		$receivedContents = file_get_contents($receivedFilename);
+		if (strstr($receivedContents, $approvedContents)) {
+			unlink($receivedFilename);
+		} else {
+			$hint = "\n------ To Approve, use the following command ------\n";
+			$hint .= 'mv -v "' . addslashes($receivedFilename) . '" "' . addslashes($approvedFilename) . "\"\n";
+			$hint .= "\n\n";
+			$reporter->reportFailure($approvedFilename, $receivedFilename); 
+			throw new RuntimeException('Approval File Mismatch: ' . $receivedFilename . ' does not contain ' . $approvedFilename . $hint);
+		}
+	}
+	
 	public static function approveTransformedList(array $list, $callbackObject, $methodName) {
 		$string = '';
 		foreach($list as $item) {
@@ -71,6 +95,10 @@ class Approvals {
 	
 	public static function approveHtml($html) {
 		self::approve(new TextWriter($html, 'html'), new PHPUnitNamer(), self::getReporter('html'));
+	}
+	
+	public static function approvePartialHtml($html) {
+		self::approvePartial(new TextWriter($html, 'html'), new PHPUnitNamer(), self::getReporter('html'));
 	}
 	
 }
