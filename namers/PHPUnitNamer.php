@@ -37,7 +37,11 @@ class PHPUnitNamer {
 	}
 	
 	public function getCallingTestClassName() {
-		return $this->caller['class'];
+		$class = $this->caller['class'];
+		if (stristr($class, '\\')) {
+			list(,$class) = explode('\\', $class);
+		}
+		return $class;
 	}
 	
 	public function getCallingTestMethodName() {
