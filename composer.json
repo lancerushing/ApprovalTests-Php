@@ -1,1 +1,4 @@
-composer.json
+{
+    "name": "lancerushing/ApprovalTests-Php",
+    "type": "library"
+}
