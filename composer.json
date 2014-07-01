@@ -1,4 +1,13 @@
 {
     "name": "lancerushing/ApprovalTests-Php",
-    "type": "library"
+    "type": "library",
+    "autoload":{
+        "classmap": [
+            "Approvals.php",
+            "ZendApprovals.php",
+            "namers/",
+            "reporters/",
+            "writers/"
+        ]
+    }
 }
