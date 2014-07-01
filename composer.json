@@ -4,6 +4,7 @@
     "autoload":{
         "classmap": [
             "Approvals.php",
+            "FileUtil.php",
             "ZendApprovals.php",
             "namers/",
             "reporters/",
