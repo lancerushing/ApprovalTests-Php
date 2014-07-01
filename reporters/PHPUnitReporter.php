@@ -1,5 +1,4 @@
 <?php
-require_once 'PHPUnit/Framework/Assert.php';
 require_once 'Reporter.php';
 
 class PHPUnitReporter implements Reporter {
