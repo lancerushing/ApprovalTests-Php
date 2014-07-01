@@ -1,5 +1,4 @@
 <?php
-require_once 'Reporter.php';
 
 class PHPUnitReporter implements Reporter {
 	public function reportFailure($approvedFilename, $receivedFilename) {

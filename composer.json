@@ -10,5 +10,9 @@
             "reporters/",
             "writers/"
         ]
+    },
+    "require-dev": {       
+        "phpunit/phpunit": "4.1.*"
     }
+
 }

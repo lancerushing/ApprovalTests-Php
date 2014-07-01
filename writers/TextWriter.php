@@ -1,5 +1,5 @@
 <?php
-require_once 'Writer.php';
+
 
 class TextWriter implements Writer {
 	private $received;

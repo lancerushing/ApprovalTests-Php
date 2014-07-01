@@ -1,10 +1,5 @@
 <?php
 
-require_once 'Writer.php';
-require_once 'Zend/Pdf.php';
-require_once 'Zend/Pdf/Element/String.php';
-require_once 'Zend/Pdf/Element/String/Binary.php';
-
 class ZendPdfWriter implements Writer {
 
     /**

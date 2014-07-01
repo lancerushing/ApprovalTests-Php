@@ -1,4 +1,5 @@
 <?php
+
 class PHPUnitNamer {
 	private $caller;
 	private $testDirectory;
@@ -19,7 +20,8 @@ class PHPUnitNamer {
 	}
 	
 	public static function isPHPUnitTest($path) {
-		$expectedPath = DIRECTORY_SEPARATOR . 'PHPUnit' . DIRECTORY_SEPARATOR . 'Framework' . DIRECTORY_SEPARATOR . 'TestCase.php';
+
+		$expectedPath = DIRECTORY_SEPARATOR . 'Framework' . DIRECTORY_SEPARATOR . 'TestCase.php';
 		$pathPart = substr($path, -strlen($expectedPath));
 		return $pathPart === $expectedPath;
 	}

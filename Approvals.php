@@ -1,11 +1,4 @@
 <?php
-require_once 'writers/Writer.php';
-require_once 'writers/TextWriter.php';
-require_once 'namers/PHPUnitNamer.php';
-require_once 'reporters/PHPUnitReporter.php';
-require_once 'reporters/OpenReceivedFileReporter.php';
-require_once 'reporters/Reporter.php';
-
 
 class Approvals {
 	private static $reporter = null;
