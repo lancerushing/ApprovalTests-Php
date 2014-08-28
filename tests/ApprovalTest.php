@@ -1,6 +1,5 @@
 <?php
 
-
 class ApprovalTest extends PHPUnit_Framework_TestCase {
 	private function approveList($list){
 		Approvals::useReporter(new OpenDiffReporter());
@@ -26,6 +25,16 @@ class ApprovalTest extends PHPUnit_Framework_TestCase {
 
 	public function testAppoveMultiArray(){
 		$list = array(array("Hello", "World"), array("Tom", "Joe"));
+		$this -> approveList($list);
+	}
+
+	public function testApproveMultiMap(){
+		$list = array(
+			'zero' => 'Lance',
+			'one' => 'Jim',
+			'two' => 'James',
+			'three' => array('primary' => 'LLewellyn', 'other' => 'Jason')
+		);
 		$this -> approveList($list);
 	}
 }
