@@ -1,14 +1,18 @@
 <?php
 
+
 class ApprovalTest extends PHPUnit_Framework_TestCase {
-	public function testApproveArray() {
+	private function approveList($list){
 		Approvals::useReporter(new OpenDiffReporter());
-		$list = array('zero', 'one', 'two', 'three', 'four', 'five');
 		Approvals::approveList($list);
 	}
 
+	public function testApproveArray() {
+		$list = array('zero', 'one', 'two', 'three', 'four', 'five');
+		$this -> approveList($list);
+	}
+
 	public function testApproveMap() {
-		Approvals::useReporter(new OpenDiffReporter());
 		$list = array(
 			'zero' => 'Lance',
 			'one' => 'Jim',
@@ -17,7 +21,12 @@ class ApprovalTest extends PHPUnit_Framework_TestCase {
 			'four' => 'Asaph',
 			'five' => 'Dana'
 		);
-		Approvals::approveList($list);
+		$this -> approveList($list);
+	}
+
+	public function testAppoveMultiArray(){
+		$list = array(array("Hello", "World"), array("Tom", "Joe"));
+		$this -> approveList($list);
 	}
 }
 ?>

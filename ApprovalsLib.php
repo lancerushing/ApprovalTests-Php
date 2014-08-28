@@ -32,7 +32,7 @@ class RequireHelper{
 	}
 }
 
-class RequireHelperShouldTest extends PHPUnit_Framework_TestCase{
+/*class RequireHelperShouldTest extends PHPUnit_Framework_TestCase{
 	public static $baseDir = 'C:\\base';
 	public static function GetTestDataFiles(){
 		$name = RequireHelperShouldTest::$baseDir;
@@ -93,7 +93,7 @@ class RequireHelperShouldTest extends PHPUnit_Framework_TestCase{
 
 		$this -> assertEquals($expectedArr,$actualArr);
 	}
-}
+}//*/
 
 RequireHelper::RequireApprovals();
 
