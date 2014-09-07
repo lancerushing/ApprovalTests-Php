@@ -1,4 +1,5 @@
 <?php
+require_once dirname(__DIR__) . "/ApprovalsLib.php";
 
 class ApprovalTest extends PHPUnit_Framework_TestCase {
 	private function approveList($list){
