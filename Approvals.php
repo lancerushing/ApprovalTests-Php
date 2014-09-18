@@ -77,13 +77,27 @@ class Approvals {
 		}
 		self::approveString($string);
 	}
+
+	public static function getApprovalString(array $list, $indent = 0){
+		$string = '';
+		$space = str_repeat("\t", $indent);
+		foreach($list as $key => $item) {
+			$string .= "{$space}[$key] -> ";
+			if(is_array($item)){
+				$string .= "\n";
+				$string .= self::getApprovalString($item, $indent + 1);
+			}
+			else{
+				$string .= "$item\n";
+			}
+		}
+
+		return $string;
+	}
 	
 	public static function approveList(array $list) {
-		$string = '';
-		foreach($list as $key => $item) {
-			$string .= '[' . $key . '] -> ' . $item . "\n";
-		}
-		self::approveString($string);
+		
+		self::approveString(self::getApprovalString($list));
 	}
 	
 	public static function approveHtml($html) {
